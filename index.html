@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no, email=no">
-    <title>逾期借款人评估画像工具</title>
+    <title>评估画像工具</title>
     <style>
         /* 全局重置，友好沟通 */
         * {
@@ -250,7 +250,7 @@
 <body>
     <div class="evaluator">
         <div class="app-title">
-            <h1>🧑‍⚖️ 逾期借款人评估画像工具</h1>
+            <h1>🧑‍⚖️ 评估画像工具</h1>
             <span class="badge">期供变更：分类工具</span>
         </div>
 
@@ -378,25 +378,29 @@
                 // ----- 3. 针对不同类型 + 能力层级的策略建议 (易懂、接地气)-----
                 let strategySuggestion = '';
                 if (typeKey === 'active') {
-                    strategySuggestion = `✅ 优质客户，配合度高，鼓励现金还款。${abilityLevel}能力：${
-                        abilityLevel === '高' ? '提供主动服务，优先安排期供变更，并保持长期联系。' :
-                        abilityLevel === '中' ? '安排期供变更，提供一定的情绪价值，并保持长期联系。' :
+                    strategySuggestion = `✅ 优质客户，配合度高，鼓励现金还款。
+                         ${abilityLevel}能力：${
+                        abilityLevel === '高' ? '您好，您是我最优质的的客户，根据您目前还款能力，我们还是建议您优先自主还款。如果今后遇到困难，我们会随时为您安排期供变更，我们共同面对困难，携手走过特殊时期。' :
+                        abilityLevel === '中' ? '您好，您是我最优质的的客户，当前可能只是暂时遇到困难，相信您很快会有新的提升。如果困难，我们可以安排期供变更，减轻您的压力，我们愿意和您携手面对这一特殊时期' :
                          '深度沟通，告知期供变更优势，协助寻找资金来源，避免客户征信失信。'}`;
                 } else if (typeKey === 'self') {
-                    strategySuggestion = `🔹 不喜欢被打扰，但还款自觉，尝试鼓励现金还款。${abilityLevel}能力：${
-                        abilityLevel === '高' ? '平时减少联系，做一次深度有协定的沟通，避免失联。适时介绍期供变更。' :
-                        abilityLevel === '中' ? '避免频繁致电，尝试鼓励其沟通和现金还款，适时介绍期供变更。' :
-                         '注意了解经济状况变化，提供期供变更选项，保持最低限度但深度沟通和跟进。'}`;
+                    strategySuggestion = `🔹 不喜欢被打扰，但还款自觉，尝试鼓励现金还款。
+                        ${abilityLevel}能力：${
+                        abilityLevel === '高' ? '您好，非常抱歉打扰到您，如果您近期可能出现还款困难，我们可以根据政策提供帮助，希望您知道我们随时可以沟通联系，请相信我们。' :
+                        abilityLevel === '中' ? '您好，非常抱歉打扰到您，您名下贷款符合有关互惠政策，请允许我介绍一下。我们不会频繁打扰您，但希望您相信我们，有困难随时联系我们' :
+                         '注意了解经济状况变化，提供期供变更选项，保持最低限度但深度沟通和跟进，避免失联。'}`;
                 } else if (typeKey === 'evade') {
-                    strategySuggestion = `⚠️ 抵触、失联风险高。${abilityLevel}能力：${
-                        abilityLevel === '高' ? '疑似恶意逃债，深度或多次沟通，早做期供变更，并尽量取得理解后保持沟通。' :
-                        abilityLevel === '中' ? '表达善意，通过沟通取得信任，考虑上门，争取洽谈期供变更。' :
-                         '诉讼时间成本较高时以期供变更为主，经分行评估方可寻求ABS或宽限期。'}`;
+                    strategySuggestion = `⚠️ 抵触、失联风险高。
+                        ${abilityLevel}能力：${
+                        abilityLevel === '高' ? '您好，可能之前我们确实存在有关误会，但我们还是有相互信任基础的，您的资金状况也一直良好。如果您不满意我们的服务，您也可以重新选择。如果您继续选择我们，我们希望随时沟通，并向您提供热情服务。' :
+                        abilityLevel === '中' ? '您好，可能之前我们确实存在有关误会，但我们在您出现暂时困难时一定会提供最热情的服务和最有利的帮助，希望随时保持沟通，我们会重视为您量身设计最合适的优质方案。' :
+                         '尽量避免失联，可能需要上门，一旦失联基本失去期供变更的洽谈可能。'}`;
                 } else { // delay 敷衍拖延
-                    strategySuggestion = `⏰ 口头承诺多，无实际还款。${abilityLevel}能力：${
-                        abilityLevel === '高' ? '优先表达善意，让选择上门或约面谈，争取达成期供变更并保持联系。' :
-                        abilityLevel === '中' ? '做好上门准备，争取达成期供变更并保持联系。' :
-                         '诉讼时间成本较高时以期供变更为主，经分行评估方可寻求ABS或宽限期。'}`;
+                    strategySuggestion = `⏰ 口头承诺多，无实际还款。
+                        ${abilityLevel}能力：${
+                        abilityLevel === '高' ? '您好，我们的沟通一直都很顺畅，感谢您一直以来的理解和支持，只是我们当前人手紧张，可能难以及时准确提醒到您，您看是否可以每月X日提前将款项存入还款账户？' :
+                        abilityLevel === '中' ? '您好，我们的沟通一直都很顺畅，感谢您一直以来的理解和支持，所以如果您出现暂时困难也没关系，我们随时保持沟通，我们会为您量身设计的优质方案度过困难。' :
+                         '如果上门、多方努力无法联系或难以沟通，应优先诉讼，并经分行评估方可寻求ABS或宽限期。'}`;
                 }
 
                 // 综合描述 (简练)
